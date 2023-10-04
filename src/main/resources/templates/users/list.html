@@ -1,0 +1,55 @@
+<div th:replace="shared/top"  xmlns:th="http://www.w3.org/1999/xhtml"> </div>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid"  xmlns:th="http://www.w3.org/1999/xhtml">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nome</th>
+                                            <th>Email</th>
+                                            <th>Data de nascimento</th>
+                                            <th>Telefone</th>
+                                            <th>.</th>
+                                            <th>.</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr th:each="user:${users}">
+                                            <th th:text="${user.id}"></th>
+                                            <th th:text="${user.name}"></th>
+                                            <th th:text="${user.email}"></th>
+                                            <th th:text="${user.date}"></th>
+                                            <th th:text="${user.tel}"></th>
+                                            <td class="text-center"> <a th:href="@{'/usuarios/' + ${user.id} }" class="btn btn-warning">Alterar</a></td>
+                                            <td class="text-center"> <a th:href="@{'/usuarios/delete/' + ${user.id} }" onclick="return confirm('tem certeza que deseja apagar esse registro?')" class="btn btn-danger">Excluir</a></td>
+                                        </tr>
+                                    </tfoot>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+                </div>
+            <!-- End of Main Content -->
+
+<div th:replace="shared/bottom" xmlns:th="http://www.w3.org/1999/xhtml"> </div>
